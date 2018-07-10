@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - "8.8.0"
+before_install:
+  - "npm install"
+  - "npm install -g jest"
+script:
+  - npm test
