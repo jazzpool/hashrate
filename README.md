@@ -1,4 +1,4 @@
-# hashrate utils
+# hashrate [![Build Status](https://travis-ci.org/jazzpool/hashrate.svg?branch=master)](https://travis-ci.org/jazzpool/hashrate)
 
 This is simple hashrate utils module for client and server side.
 
