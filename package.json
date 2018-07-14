@@ -13,9 +13,9 @@
   "engines": {
     "node": ">=8.0"
   },
-  "author": [
-    "Mikhail Privalov",
-    "Allbann"
+  "author": "Allbann",
+  "contributors": [
+    "Mikhail Privalov <n5250@ya.ru> (https://github.com/moodpulse)"
   ],
   "license": "MIT",
   "devDependencies": {
