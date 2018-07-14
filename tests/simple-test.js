@@ -17,4 +17,11 @@ describe('Hashrate', () => {
     it('getLuck', ()=> {
         expect(hashrate.getLuck(9683851, 1000000000000, 86400, 1)).toEqual(0.48138684426315853);
     })
+
+    it('getPower', ()=> {
+        expect(hashrate.getPower(0)).toEqual(0);
+        expect(hashrate.getPower(1000)).toEqual(1);
+        expect(hashrate.getPower(10000000)).toEqual(2);
+        expect(hashrate.getPower(10000000000)).toEqual(3);
+    })
 });

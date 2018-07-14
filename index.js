@@ -37,8 +37,17 @@
     @ diff <Number> 
     @ hashrate <Number>
     */
-    function getLuck(diff, hashrate, period, blocks = 1) {
-        return getEstimatedMinigTime(diff * blocks, hashrate) / period || 0;
+    function getLuck(diff, hashrate, period, blocks) {
+        return getEstimatedMinigTime(diff * (blocks || 1), hashrate) / period || 0;
+    };
+
+    function getPower(hashrate) {
+        let i = 0;
+        while(hashrate >= 1000) {
+            hashrate = hashrate / 1000;
+            i++;
+        }
+        return i;
     };
     
 
@@ -46,5 +55,6 @@
         hashrateToString: hashrateToString,
         getEstimatedMinigTime: getEstimatedMinigTime,
         getLuck: getLuck,
+        getPower: getPower,
     };
 })
