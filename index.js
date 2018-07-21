@@ -88,7 +88,6 @@
     };
 
     /**
-     * 
      * @param {number} hashrate
      * @param {number} power
      * @returns {string} Combination of hashrateValueToPower and getPowerStr
