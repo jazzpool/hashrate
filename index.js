@@ -95,7 +95,7 @@
      * @returns {string} Combination of hashrateValueToPower and getPowerStr
      */
     function hashratePowerStr(hashrate, power, delimiter) {
-        return hashrateValueToPower(hashrate, power).toFixed(2) + (delimiter? ' ' : '') + getPowerStr(power);
+        return hashrateValueToPower(hashrate, power).toFixed(2) + (delimiter ? ' ' : '') + getPowerStr(power);
     }
 
 
