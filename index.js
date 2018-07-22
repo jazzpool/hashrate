@@ -9,10 +9,11 @@
 })(this, function () {
     /**
      * @param {number} hashrate
+     * @param {boolean} [delimiter=false]
      * @returns Hashrate in string
      */
-    function hashrateToString(hashrate) {
-        return hashratePowerStr(hashrate, getPower(hashrate));
+    function hashrateToString(hashrate, delimiter) {
+        return hashratePowerStr(hashrate, getPower(hashrate), delimiter);
     };
 
     /**
@@ -90,10 +91,11 @@
     /**
      * @param {number} hashrate
      * @param {number} power
+     * @param {boolean} [delimiter=false]
      * @returns {string} Combination of hashrateValueToPower and getPowerStr
      */
-    function hashratePowerStr(hashrate, power) {
-        return hashrateValueToPower(hashrate, power).toFixed(2) + ' ' + getPowerStr(power);
+    function hashratePowerStr(hashrate, power, delimiter) {
+        return hashrateValueToPower(hashrate, power).toFixed(2) + (delimiter? ' ' : '') + getPowerStr(power);
     }
 
 

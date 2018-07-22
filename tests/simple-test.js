@@ -3,11 +3,16 @@ const hashrate = require('../index');
 describe('Hashrate', () => {
 
     it('hashrateToString', ()=> {
-        expect(hashrate.hashrateToString(1000000000000000)).toEqual('1.00 PH');
-        expect(hashrate.hashrateToString(1000000000000)).toEqual('1.00 TH');
-        expect(hashrate.hashrateToString(1000000000)).toEqual('1.00 GH');
-        expect(hashrate.hashrateToString(1000000)).toEqual('1.00 MH');
-        expect(hashrate.hashrateToString(1200)).toEqual('1.20 KH');
+        expect(hashrate.hashrateToString(1000000000000000)).toEqual('1.00PH');
+        expect(hashrate.hashrateToString(1000000000000)).toEqual('1.00TH');
+        expect(hashrate.hashrateToString(1000000000)).toEqual('1.00GH');
+        expect(hashrate.hashrateToString(1000000)).toEqual('1.00MH');
+        expect(hashrate.hashrateToString(1200)).toEqual('1.20KH');
+    });
+
+    it('hashrateToString with delimiter', ()=> {
+        expect(hashrate.hashrateToString(1000000, true)).toEqual('1.00 MH');
+        expect(hashrate.hashrateToString(1200, true)).toEqual('1.20 KH');
     });
 
     it('getEstimatedMinigTime', ()=> {
@@ -41,7 +46,7 @@ describe('Hashrate', () => {
     })
 
     it('hashratePowerStr', ()=> {
-        expect(hashrate.hashratePowerStr(1, 0)).toEqual('1.00 H');
-        expect(hashrate.hashratePowerStr(2000, 1)).toEqual('2.00 KH');
+        expect(hashrate.hashratePowerStr(1, 0)).toEqual('1.00H');
+        expect(hashrate.hashratePowerStr(2000, 1, true)).toEqual('2.00 KH');
     })
 });
