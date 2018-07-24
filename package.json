@@ -1,6 +1,6 @@
 {
   "name": "hashrate",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Simple hashrate utils",
   "main": "index.js",
   "scripts": {
@@ -13,9 +13,9 @@
   "engines": {
     "node": ">=8.0"
   },
-  "author": [
-    "Mikhail Privalov",
-    "Allbann"
+  "author": "Allbann",
+  "contributors": [
+    "Mikhail Privalov <n5250@ya.ru> (https://github.com/moodpulse)"
   ],
   "license": "MIT",
   "devDependencies": {
