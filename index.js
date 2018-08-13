@@ -7,13 +7,19 @@
     }
 
 })(this, function () {
+    var HASHARATES = ['H', 'KH', 'MH', 'GH', 'TH', 'PH'];
+    var SOLUTIONS = ['Sol', 'KSol', 'MSol', 'GSol', 'TSol', 'PSol'];
+
+
+
     /**
      * @param {number} hashrate
      * @param {boolean} [delimiter=false]
+     * @param {string} type
      * @returns Hashrate in string
      */
-    function hashrateToString(hashrate, delimiter) {
-        return hashratePowerStr(hashrate, getPower(hashrate), delimiter);
+    function hashrateToString(hashrate, delimiter, type) {
+        return hashratePowerStr(hashrate, getPower(hashrate), delimiter, type);
     };
 
     /**
@@ -75,8 +81,9 @@
      * @param {number} power Power value
      * @returns {string} Power in string
      */
-    function getPowerStr(power) {
-        return ['H', 'KH', 'MH', 'GH', 'TH', 'PH'][power];
+    function getPowerStr(power, type) {
+        type = type || 'hash';
+        return (type === 'hash' ? HASHARATES : SOLUTIONS)[power];
     };
 
     /**
@@ -92,10 +99,11 @@
      * @param {number} hashrate
      * @param {number} power
      * @param {boolean} [delimiter=false]
+     * @param {string} type
      * @returns {string} Combination of hashrateValueToPower and getPowerStr
      */
-    function hashratePowerStr(hashrate, power, delimiter) {
-        return hashrateValueToPower(hashrate, power).toFixed(2) + (delimiter ? ' ' : '') + getPowerStr(power);
+    function hashratePowerStr(hashrate, power, delimiter, type) {
+        return hashrateValueToPower(hashrate, power).toFixed(2) + (delimiter ? ' ' : '') + getPowerStr(power, type);
     }
 
 

@@ -15,6 +15,11 @@ describe('Hashrate', () => {
         expect(hashrate.hashrateToString(1200, true)).toEqual('1.20 KH');
     });
 
+    it('hashrateToString with solutions', () => {
+        expect(hashrate.hashrateToString(1000000, true, 'sol')).toEqual('1.00 MSol');
+        expect(hashrate.hashrateToString(1200, true, 'sol')).toEqual('1.20 KSol');
+    });
+
     it('getEstimatedMinigTime', () => {
         expect(hashrate.getEstimatedMinigTime(9683851, 1000000000000)).toEqual(41591.823344336895);
     });
