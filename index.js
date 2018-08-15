@@ -7,10 +7,37 @@
     }
 
 })(this, function () {
+
     var HASHARATES = ['H', 'KH', 'MH', 'GH', 'TH', 'PH'];
     var SOLUTIONS = ['Sol', 'KSol', 'MSol', 'GSol', 'TSol', 'PSol'];
+    var MULTIPLIER = {
+            'H':1,
+            'KH':1000,
+            'MH':1000000,
+            'GH':1000000000,
+            'TH':1000000000000,
+            'PH':1000000000000000,
+            'SOL':1,
+            'KSOL':1000,
+            'MSOL':1000000,
+            'GSOL':1000000000,
+            'TSOL':1000000000000,
+            'PSOL':1000000000000000,
+            undefined: 1,
+    };
 
-
+    /**
+     * conver string hashrate to number
+     * @param {String} hashrate
+     * @returns Hashrate in number
+     */
+    function hashrateToNumber(hashrateStr) {
+        let reggroup = hashrateStr.match(/^(\d*[\.,]?\d*)\s*([A-Za-z]*H|[A-Za-z]*Sol)/i);
+        if(reggroup === null){
+            throw new Error('incorrect input data')
+        }
+        return Number(reggroup[1].replace(/,/, '.')) * MULTIPLIER[reggroup[2].toUpperCase()];
+    };
 
     /**
      * @param {number} hashrate
@@ -108,6 +135,7 @@
 
 
     return {
+        hashrateToNumber: hashrateToNumber,
         hashrateToString: hashrateToString,
         getEstimatedMinigTime: getEstimatedMinigTime,
         getLuck: getLuck,

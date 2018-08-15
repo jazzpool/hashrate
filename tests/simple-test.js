@@ -2,6 +2,20 @@ const hashrate = require('../index');
 
 describe('Hashrate', () => {
 
+
+    it('hashrateToNumber', () => {
+        expect(hashrate.hashrateToNumber('1.00PH')).toEqual(1000000000000000);
+        expect(hashrate.hashrateToNumber('1.00TH')).toEqual(1000000000000);
+        expect(hashrate.hashrateToNumber('1.00GH')).toEqual(1000000000);
+        expect(hashrate.hashrateToNumber('1.00MH')).toEqual(1000000);
+        expect(hashrate.hashrateToNumber('1.20KH')).toEqual(1200);
+        expect(hashrate.hashrateToNumber('1Psol')).toEqual(1000000000000000);
+        expect(hashrate.hashrateToNumber('1Tsol')).toEqual(1000000000000);
+        expect(hashrate.hashrateToNumber('1Gsol')).toEqual(1000000000);
+        expect(hashrate.hashrateToNumber('1Msol')).toEqual(1000000);
+        expect(hashrate.hashrateToNumber('1,2Ksol')).toEqual(1200);
+    });
+
     it('hashrateToString', () => {
         expect(hashrate.hashrateToString(1000000000000000)).toEqual('1.00PH');
         expect(hashrate.hashrateToString(1000000000000)).toEqual('1.00TH');
