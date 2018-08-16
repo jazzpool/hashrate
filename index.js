@@ -32,7 +32,7 @@
      * @returns Hashrate in number
      */
     function hashrateToNumber(hashrateStr) {
-        let reggroup = hashrateStr.match(/^(\d*[\.,]?\d*)\s*([A-Za-z]*H|[A-Za-z]*Sol)/i);
+        var reggroup = hashrateStr.match(/^(\d*[\.,]?\d*)\s*([A-Za-z]*H|[A-Za-z]*Sol)/i);
         if(reggroup === null){
             throw new Error('incorrect input data')
         }
@@ -55,7 +55,7 @@
      * @returns {number} time of block creation
     */
     function getEstimatedMinigTime(difficulty, hashrate) {
-        return difficulty * 2 ** 32 / hashrate;
+        return difficulty * Math.pow(2, 32) / hashrate;
     }
 
     /**
