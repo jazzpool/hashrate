@@ -133,6 +133,22 @@
         return hashrateValueToPower(hashrate, power).toFixed(2) + (delimiter ? ' ' : '') + getPowerStr(power, type);
     }
 
+    /**
+     * Returns hashes in ZEC representation
+     * @param {number} hashrate 
+     */
+    function hashesToSolsZec(hashrate) {
+        return hashrate * 2 / Math.pow(10, 6)
+    }
+
+    /**
+     * Returns string of ZEC hashrate
+     * @param {number} hashrate 
+     * @param {string|false} delimiter 
+     */
+    function hashrateToStringZec(hashrate, delimiter) {
+        return hashrateToString(hashesToSolsZec(hashrate), delimiter, 'sol');
+    }
 
     return {
         hashrateToNumber: hashrateToNumber,
@@ -144,5 +160,7 @@
         getPowerStr: getPowerStr,
         hashrateValueToPower: hashrateValueToPower,
         hashratePowerStr: hashratePowerStr,
+        hashesToSolsZec: hashesToSolsZec,
+        hashrateToStringZec: hashrateToStringZec,
     };
 })
