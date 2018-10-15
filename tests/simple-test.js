@@ -74,6 +74,11 @@ describe('Hashrate', () => {
         expect(hashrate.hashesToSolsZec(5000000)).toEqual(10);
     });
 
+    it('solsToHashesZec', () => {
+        expect(hashrate.solsToHashesZec(1)).toEqual(500000);
+        expect(hashrate.solsToHashesZec(123)).toEqual(61500000);
+    });
+
     it('hashrateToStringZec', () => {
         expect(hashrate.hashrateToStringZec(1000000)).toEqual('2.00Sol');
         expect(hashrate.hashrateToStringZec(5000000)).toEqual('10.00Sol');
@@ -81,6 +86,4 @@ describe('Hashrate', () => {
         expect(hashrate.hashrateToStringZec(1000000, ' ')).toEqual('2.00 Sol');
         expect(hashrate.hashrateToStringZec(5000000, ' ')).toEqual('10.00 Sol');
     });
-
-    // hashesToSolsZec
 });

@@ -134,11 +134,19 @@
     }
 
     /**
-     * Returns hashes in ZEC representation
+     * Returns sols in ZEC representation
      * @param {number} hashrate 
      */
     function hashesToSolsZec(hashrate) {
-        return hashrate * 2 / Math.pow(10, 6)
+        return hashrate * 2 / Math.pow(10, 6);
+    }
+
+    /**
+     * Returns hashes in ZEC representation
+     * @param {number} sols
+     */
+    function solsToHashesZec(hashrate) {
+        return hashrate * Math.pow(10, 6) / 2;
     }
 
     /**
@@ -161,6 +169,7 @@
         hashrateValueToPower: hashrateValueToPower,
         hashratePowerStr: hashratePowerStr,
         hashesToSolsZec: hashesToSolsZec,
+        solsToHashesZec: solsToHashesZec,
         hashrateToStringZec: hashrateToStringZec,
     };
 })
